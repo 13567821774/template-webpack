@@ -5,12 +5,11 @@ module.exports = {
   entry: {
     app: './src/index.js'
   },
-  mode: 'development',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/'
+    publicPath: './'
   },
   module: {
     rules: [
@@ -29,18 +28,9 @@ module.exports = {
     ]
   },
   devtool: 'inline-source-map',
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist')
-    },
-    compress: true,
-    port: 9000,
-    hot: true
-  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'output'
-    }),
-    new webpack.HotModuleReplacementPlugin()
+    })
   ]
 };

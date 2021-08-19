@@ -1,11 +1,7 @@
-import _ from 'lodash';
-import './style.css';
-import print from './print';
+import { squre } from './math';
 function component() {
-  const btn = document.createElement('button');
-  btn.innerHTML = 'click';
-  btn.onclick = print;
-  return btn;
+  const pre = document.createElement('pre');
+  pre.innerHTML = squre(2);
+  document.body.appendChild(pre);
 }
-
-document.body.appendChild(component());
+component()
