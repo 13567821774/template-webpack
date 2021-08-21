@@ -8,19 +8,22 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve --open --config webpack.dev.js",
-    "server": "node server.js"
+    "server": "node server.js",
+    "start": "http-server dist"
   },
   "devDependencies": {
     "css-loader": "^6.2.0",
     "express": "^4.17.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "http-server": "^13.0.1",
     "style-loader": "^3.2.1",
     "webpack": "^5.50.0",
     "webpack-cli": "^4.8.0",
     "webpack-dev-middleware": "^5.0.0",
     "webpack-dev-server": "^4.0.0",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "workbox-webpack-plugin": "^6.2.4"
   },
   "dependencies": {
     "lodash": "^4.17.21"

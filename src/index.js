@@ -1,7 +1,16 @@
-import { squre } from './math';
+import _ from 'lodash';
+import print from './print.js';
+const sw = require('./sw.js');
+console.log(123);
 function component() {
-  const pre = document.createElement('pre');
-  pre.innerHTML = squre(2);
-  document.body.appendChild(pre);
+  const element = document.createElement('div');
+
+  // Lodash, now imported by this script
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.onclick = print.bind(null, 'Hello webpack!');
+
+  return element;
 }
-component()
+
+document.body.appendChild(component());
+sw();
