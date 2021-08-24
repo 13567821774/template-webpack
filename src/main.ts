@@ -1,16 +1,11 @@
 import _ from 'lodash';
-import print from './print.js';
-const sw = require('./sw.js');
-console.log(123);
+import './style.css';
 function component() {
+  console.log(123213213);
   const element = document.createElement('div');
-
-  // Lodash, now imported by this script
+  element.classList.add('test');
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.onclick = print.bind(null, 'Hello webpack!');
-
   return element;
 }
 
 document.body.appendChild(component());
-sw();

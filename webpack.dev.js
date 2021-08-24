@@ -7,10 +7,11 @@ module.exports = merge(common, {
   devtool: 'source-map',
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist')
+      directory: path.resolve(__dirname, 'dist')
     },
     compress: true,
     port: 9000,
+    open: true,
     hot: true
   }
 });

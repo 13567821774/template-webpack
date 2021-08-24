@@ -1,4 +1,5 @@
 module.exports = () => {
+  // 服务器离线延迟连接
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker

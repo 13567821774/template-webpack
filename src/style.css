@@ -1,6 +1,5 @@
-.hello {
-  color: red;
-}
-body {
-  background-color: red;
+.test {
+  font-size: 60px;
+  background-color: black;
+  color: #fff;
 }
