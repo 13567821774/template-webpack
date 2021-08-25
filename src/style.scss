@@ -1,0 +1,14 @@
+.test {
+  font-size: 90px;
+  background-color: yellow;
+  color: #fff;
+  animation: identifiertest 3s ease-in-out  infinite;
+}
+@keyframes identifiertest {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

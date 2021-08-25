@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const webpack = require('webpack');
 module.exports = {
   entry: './src/main.ts',
@@ -8,7 +8,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/'
+    // publicPath: '/'
   },
   resolve: {
     // 后缀省略
@@ -44,7 +44,19 @@ module.exports = {
       {
         // 处理css
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // 将 JS 字符串生成为 style 节点
+          MiniCssExtractPlugin.loader,
+          // 将 CSS 转化成 CommonJS 模块
+          'css-loader',
+          'postcss-loader',
+          // 将 Sass 编译成 CSS
+          'sass-loader'
+        ]
       },
       {
         // 处理图片文件
@@ -82,12 +94,8 @@ module.exports = {
       hash: true, // 缓存破坏
       inject: 'body' // 插入body
     }),
-    // 持久化
-    new WorkboxPlugin.GenerateSW({
-      //  ServiceWorkers 快速启用
-      // 不允许遗留任何“旧的” ServiceWorkers
-      clientsClaim: true,
-      skipWaiting: true
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
     })
   ]
 };
