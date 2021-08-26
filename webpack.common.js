@@ -8,7 +8,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    // publicPath: '/'
+    publicPath: ''
   },
   resolve: {
     // 后缀省略
@@ -67,6 +67,10 @@ module.exports = {
         // 处理字体文件
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource'
+      },
+      {
+        test: /\.html$/,
+        use: 'html-loader'
       }
     ]
   },
@@ -87,15 +91,15 @@ module.exports = {
     }
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
+    }),
     new HtmlWebpackPlugin({
       title: 'hello webpack',
       template: './public/index.html',
       name: 'index.html',
-      hash: true, // 缓存破坏
+      hash: false, // 缓存破坏
       inject: 'body' // 插入body
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
     })
   ]
 };

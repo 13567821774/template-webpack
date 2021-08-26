@@ -1,2 +1,2 @@
 import './style.scss';
-console.log('123');
+console.log('webpack 不好玩');
